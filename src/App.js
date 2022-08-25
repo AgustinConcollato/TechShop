@@ -1,10 +1,9 @@
-import './App.css';
+import NavBar from './components/NavBar';
 
-function App(){
+const App = () =>{
   return (
-    <div className="app">
-      <h1>App del curso React Js</h1>
-      <a href='https://github.com/AguConco/cursoReactJs'>GitHub</a>
+    <div>
+      <NavBar />
     </div>
   );
 }

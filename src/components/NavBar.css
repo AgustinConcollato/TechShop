@@ -1,0 +1,77 @@
+header{
+    height: 100%;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    height: 120px;
+    padding: 10px;
+}
+.headerCenter{
+    height: 100%;
+    width: 100%;
+    max-width: 1023px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.logo h2{
+    font-size: 20px;
+    font-weight: 300;
+}
+.logo h2 span{
+    color: #d66140;
+    font-size: 22px;
+}
+
+.buscador input{
+    border: none;
+    outline: none;
+    background: #f5f5f5;
+    border-radius: 5px;
+    padding: 7px 10px;
+    width: 500px;
+}
+
+.contenedorInfoUsuario{
+    display: flex;
+    align-items: center;
+}
+.carrito{
+    margin-right: 10px;
+    transform: rotateY(180deg);
+    cursor: pointer;
+}
+.carrito i{
+    font-size: 20px;
+    color: transparent;
+    -webkit-text-stroke: 1px #d66140;
+}
+.usuario span{
+    color: #aaa;
+    font-size: 14px;
+}
+.usuario > div{
+    position: relative;
+    top: -5px;
+    font-size: 14px;
+}
+.usuario a{
+    margin: 0 3px;
+}
+
+nav{
+    width: 100%;
+}
+nav ul{
+    display: flex;
+}
+nav ul li a{
+    margin: 0 10px;
+    font-size: 14px;
+    border-bottom: 2px solid transparent;
+}
+nav ul li a:hover{
+    border-bottom: 2px solid #d66140;
+}
