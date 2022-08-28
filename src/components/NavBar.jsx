@@ -1,7 +1,15 @@
-import React from "react";
-import './NavBar.css';
+import React from "react"
+import CartWidget from "./CartWidget"
+import './NavBar.css'
+
+const Item = (props) =>{
+    return(
+        <li><a href="#">{props.categoria}</a></li>
+    )
+}
 
 const NavBar = () => {
+    let categorias = ['Celulares','Computadoras','Parlantes','Relojes']
     return(
         <header>
             <div className="headerCenter">
@@ -12,19 +20,14 @@ const NavBar = () => {
                   <input type="text" placeholder="¿Qué estas buscando?" />  
                 </form>
                 <div className="contenedorInfoUsuario">
-                    <div className="carrito"><i className="fa-solid fa-cart-shopping"></i></div>
+                    <CartWidget cantidad={0} />
                     <div className="usuario">
                         <span>¡Bienvenido!</span>
                         <div><a href="#">Iniciar</a>|<a href="#">Registro</a></div>
                     </div>
                 </div>
                 <nav> 
-                    <ul>
-                        <li><a href="#">Celulares</a></li>
-                        <li><a href="#">Computadoras</a></li>
-                        <li><a href="#">Parlantes</a></li>
-                        <li><a href="#">Relojes</a></li>
-                    </ul>
+                    <ul> { categorias.map(e => <Item categoria={e} />) } </ul>
                 </nav>
             </div>
         </header>

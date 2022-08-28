@@ -42,11 +42,26 @@ header{
     margin-right: 10px;
     transform: rotateY(180deg);
     cursor: pointer;
+    position: relative;
 }
 .carrito i{
     font-size: 20px;
     color: transparent;
-    -webkit-text-stroke: 1px #d66140;
+    -webkit-text-stroke: 1px #585757;
+}
+.cantidadCarrito{
+    position: absolute;
+    top: -7px;
+    left: 13px;
+    font-size: 9px;
+    background: #d66140;
+    color: #fff;
+    border-radius: 50%;
+    height: 14px;
+    width: 14px;
+    text-align: center;
+    line-height: 15px;
+    transform: rotateY(180deg);
 }
 .usuario span{
     color: #aaa;
