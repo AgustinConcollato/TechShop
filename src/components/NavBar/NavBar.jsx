@@ -1,10 +1,10 @@
 import React from "react"
-import CartWidget from "./CartWidget"
+import CartWidget from "../CartWidget"
 import './NavBar.css'
 
 const Item = (props) =>{
     return(
-        <li><a href="#">{props.categoria}</a></li>
+        <li><a key={props.categoria} href="#">{props.categoria}</a></li>
     )
 }
 
@@ -20,7 +20,7 @@ const NavBar = () => {
                   <input type="text" placeholder="¿Qué estas buscando?" />  
                 </form>
                 <div className="contenedorInfoUsuario">
-                    <CartWidget cantidad={0} />
+                    <CartWidget cantidad={0}/>
                     <div className="usuario">
                         <span>¡Bienvenido!</span>
                         <div><a href="#">Iniciar</a>|<a href="#">Registro</a></div>
