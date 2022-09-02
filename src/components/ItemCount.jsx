@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react"
 const ItemCount = ({stock,iniciar}) =>{
 
     const [cantidadTotal,setCantidad] = useState(iniciar)
-    let cantidad = cantidadTotal
+    let cantidad = cantidadTotal    
 
     useEffect(()=>{
         stock === 0 ? setCantidad(0) : setCantidad(cantidadTotal)
@@ -21,7 +21,6 @@ const ItemCount = ({stock,iniciar}) =>{
     }
     return(
         <form action="#" className="agregar">
-            <span>Stock: {stock} </span> 
             <div>
                 <button onClick={()=>{ cambiarCantidad(false) }} type="button" className="fa-solid fa-minus" />
                 <input type="text" value={cantidadTotal} disabled/>
