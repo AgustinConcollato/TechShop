@@ -3,21 +3,17 @@ import React, { useEffect, useState } from "react"
 const ItemCount = ({stock,iniciar}) =>{
 
     const [cantidadTotal,setCantidad] = useState(iniciar)
-    let cantidad = cantidadTotal    
 
     useEffect(()=>{
-        stock === 0 ? setCantidad(0) : setCantidad(cantidadTotal)
+        stock === 0 && setCantidad(0)
     },[cantidadTotal])
 
     const cambiarCantidad = (e) =>{
         if(e){
-            cantidad < stock ? cantidad = cantidadTotal + 1 : cantidad = stock
+            cantidadTotal < stock && setCantidad(cantidadTotal + 1)
         }else{
-            if(stock !== 0){
-                cantidad <= 1 ? cantidad = 1 : cantidad = cantidadTotal - 1
-            }
+            stock !== 0 && cantidadTotal > 1 && setCantidad(cantidadTotal - 1)
         }
-        setCantidad(cantidad)
     }
     return(
         <form action="#" className="agregar">

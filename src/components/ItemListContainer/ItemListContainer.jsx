@@ -36,6 +36,14 @@ const ItemListContainer = () => {
                             descripcion:'Xiaomi Celular MI 11 Lite 5G NE 8Gb 128Gb Pink 6,5"',
                             precio:500,
                             stock:5
+                        },
+                        {
+                            id:'4',
+                            img:'/multimedia/img/XiaomiKIESLECT.jpg',
+                            nombre:'Xiaomi KIESLECT KR SP02',
+                            descripcion:'Xiaomi Smartwatch KIESLECT KR SP02 Negro YFT2024EU',
+                            precio: 150,
+                            stock:0
                         }
                     ]
                 )
@@ -45,7 +53,7 @@ const ItemListContainer = () => {
 
     productos.then((resultado)=>{
         setCatalogo(resultado)
-    }).catch(()=>{
+    }).catch((error)=>{
         setCatalogo([])
     })
     },[])
