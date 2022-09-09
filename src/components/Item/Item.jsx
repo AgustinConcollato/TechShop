@@ -1,22 +1,21 @@
 import React from "react"
-import ItemCount from "../ItemCount"
 import './Item.css'
 
-const Item = ({detalle})=> {  
+const Item = ({producto})=> { 
     return(
-        <div key={detalle.id} className="producto">
+        <div key={producto.id} className="producto">
             <div className="imgProducto">
-                <img src={detalle.img} alt={detalle.nombre} />
+                <img src={producto.thumbnail} alt={producto.title} />
             </div>
             <div className="infoProducto">
-                <span> En stock: {detalle.stock} </span>
-                <h2> {detalle.nombre} </h2>
-                <p> {detalle.descripcion} </p>
-                <h4> ${detalle.precio} </h4>
+                <span> En stock: {producto.available_quantity} </span>
+                <h2> {producto.title} </h2>
+                <h4> ${producto.price} </h4>
             </div>
-            <ItemCount stock={detalle.stock} iniciar={1} />
         </div>
     )
 }
+
+// usar el "catalog_product_id" en el detalle
 
 export default Item

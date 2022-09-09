@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react"
+import './ItemCount.css'
 
 const ItemCount = ({stock,iniciar}) =>{
 
@@ -22,7 +23,7 @@ const ItemCount = ({stock,iniciar}) =>{
                 <input type="text" value={cantidadTotal} disabled/>
                 <button onClick={()=>{ cambiarCantidad(true) }} type="button" className="fa-solid fa-plus" />
             </div>
-            <button type="submit" className="btnAgregar">Agregar</button>
+            <button type="submit" className="btnAgregar">Agregar al carrito</button>
         </form>
     )
 }
