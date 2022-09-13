@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react"
+import { Link } from 'react-router-dom'
 import ItemCount from '../ItemCount/ItemCount'
 import './ItemDetail.css'
 
@@ -11,60 +12,112 @@ const ImgDetalle = ({src, alt, setImgActual}) =>{
 }
 
 const Variedad = ({pickers, idActual}) =>{  
-    const [color,setColor] = useState('#ddd')
+    const [estilos,setEstilos] = useState(['#ddd','block'])
 
     useEffect(()=>{
-        pickers.product_id === idActual && setColor('#d66140')
+        pickers.product_id === idActual && setEstilos(['#d66140','block'])
+        pickers.thumbnail === '' && setEstilos(['#fff','none'])
     },[])
 
     return(
-        <div style={{borderColor:color}} key={pickers.product_id}>
+        <Link to={'/item/'+pickers.product_id} className="imgVariedad" style={{borderColor:estilos[0], display:estilos[1]}}>
             <img src={pickers.thumbnail} alt={pickers.picker_label} />
+        </Link>
+    )
+}
+
+const CaracteristicasList = ({caracteristica}) =>{
+    const [btnEstilos,setBtnEstilos] = useState()
+    
+    useEffect(()=>{
+        caracteristica.hasOwnProperty('main_features') ? setBtnEstilos('block') : setBtnEstilos('none')
+    },[])
+
+    return(
+        <div>
+            <button style={{display:btnEstilos}} className="btnCaracteristias">Caracteristicas</button>
+            <ul> {caracteristica.main_features?.map(caracteristica => (<li key={caracteristica.text} className="caracteristica"> {caracteristica.text} </li>))} </ul>
         </div>
     )
 }
 
 const ItemDetail = ({detalle}) =>{
-    const [imgActual, setImgActual] = useState(detalle.pictures[0].url)
 
-    let marca = ''
-    for(let e of detalle.attributes) {
-        if(e.id === 'BRAND'){
-            marca = e.value_name
-            break
-        }    
+    const [imgActual, setImgActual] = useState('')
+    const [imgLaterales, setImgLaterales] = useState([])
+    const [precio, setPrecio] = useState(0)
+    const [cantidad, setCantidad] = useState(0)
+    const [nombre, setNombre] = useState('')
+    const [marca, setMarca] = useState('')
+
+    function indiceVariedad(){
+        if(detalle.pickers !== null){
+            if(detalle.pickers?.length !== 1){
+                for(let i = 0; i < detalle.pickers?.length; i++){
+                    return detalle.pickers[i].products.map(variedad => (<Variedad pickers={variedad} idActual={detalle.id} />))
+                }
+            }else{
+                return detalle.pickers[0].products.map(variedad => (<Variedad pickers={variedad} idActual={detalle.id} />))
+            }
+        } 
     }
 
-    if(detalle.buy_box_winner === null){
-        return (
-            <div className="detalle">
-                <span className="error">¡Error! No se pudo encontrar el producto</span>
-            </div>
-        ) 
-    }else{ 
-        return(
-            <div key={detalle.id} className="detalle">
-                <div className="contenedorImg">
-                    <div className="contenedorImgLaterales">
-                        {detalle.pictures.map(img =>( <ImgDetalle src={img} alt={detalle.title} setImgActual={setImgActual} />))}
-                    </div>
-                    <img className="imgActual" src={imgActual} alt={detalle.title} />
+    useEffect(()=>{
+        if(detalle.status === 'active'){
+            if(detalle.hasOwnProperty('buy_box_winner')){
+                if(detalle.buy_box_winner === null){
+                    setPrecio(<span className="noDisponible">Este producto no está disponible. Elige otra variante.</span>)
+                    setCantidad(0)
+                }else{
+                    setNombre(detalle.name)
+                    setPrecio(detalle.buy_box_winner?.price)
+                    setCantidad(detalle.buy_box_winner?.available_quantity)
+                }
+            }else{
+                setPrecio(detalle.price)
+                setNombre(detalle.title)
+                setCantidad(detalle.available_quantity)
+            }
+            setImgActual(detalle.pictures[0].url)
+            setImgLaterales(detalle.pictures)
+            for(let e of detalle.attributes) {
+                if(e.id === 'BRAND'){
+                    setMarca(e.value_name)
+                    break
+                }    
+            }
+        }else{
+            setPrecio(<span className="noDisponible">Este producto no está disponible por el momento.</span>)
+            setImgActual('/multimedia/img/no_disponible.jpg')
+            setImgLaterales([])
+        }
+    },[detalle.id])
+
+
+    return(
+        <div key={detalle.id} className="detalle">
+            <div className="contenedorImg">
+                <div className="contenedorImgLaterales">
+                    {imgLaterales.map(img =>( <ImgDetalle src={img} alt={detalle.name} setImgActual={setImgActual} />))}
                 </div>
-                <div className="infoDetalle">
-                    <span className="marca"> {marca} </span>
-                    <h1 className="nombre"> {detalle.name} </h1>
-                    <h4 className="precio"> ${detalle.buy_box_winner.price} </h4>
-                    <div className="caracteristicas">
-                        <button className="btnCaracteristias">Caracteristicas</button>
-                        <ul> { detalle.main_features.map(caracteristica => (<li> {caracteristica.text} </li>)) } </ul>
-                    </div>
-                    <div className="variedad"> {detalle.pickers !== null && detalle.pickers[0].products.map(variedad => (<Variedad pickers={variedad} idActual={detalle.id} />))} </div>
-                    <span className="stock"> En stock: {detalle.buy_box_winner.available_quantity} </span>
-                    <ItemCount stock={detalle.buy_box_winner.available_quantity} iniciar={1} />
+                <img className="imgActual" src={imgActual} alt={detalle.name} />
+            </div>
+            <div className="infoDetalle">
+                <span className="marca"> {marca} </span>
+                <h1 className="nombre"> {nombre} </h1>
+                <h4 className="precio"> ${precio} </h4>
+                <div className="contenedorCaracteristicas">
+                    <CaracteristicasList caracteristica={detalle} />
+                </div>
+                <div className="variedad"> {indiceVariedad()} </div>  
+                <div className="agregarCarrito">
+                    <span className="stock"> En stock: {cantidad} </span>
+                    <ItemCount stock={cantidad} iniciar={1} />
                 </div>
             </div>
-        )
-    }
+        </div>
+    )
+    
 }
 
 export default ItemDetail

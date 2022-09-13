@@ -8,6 +8,7 @@
     transition: .2s;
     margin-bottom: 20px;
     position: relative;
+    border: 1px solid #eee;
 }
 
 .imgProducto{
@@ -53,7 +54,7 @@
 }
 
 .producto:hover{
-    box-shadow: 0 5px 10px #00000020;
+    box-shadow: 0 10px 20px #00000020;
     z-index: 100;
 }
 .producto:hover .infoProducto span{

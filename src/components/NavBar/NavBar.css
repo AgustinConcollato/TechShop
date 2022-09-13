@@ -4,9 +4,14 @@ header{
     border-bottom: 1px solid #ddd;
     height: 120px;
     padding: 10px;
+    overflow: hidden;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: .2s;
 }
 .headerCenter{
-    height: 100%;
+    height: 100px;
     width: 100%;
     max-width: 1023px;
     margin: auto;
@@ -44,10 +49,13 @@ header{
     cursor: pointer;
     position: relative;
 }
-.carrito i{
+.iconoCarrito{
     font-size: 20px;
-    color: transparent;
-    -webkit-text-stroke: 1px #585757;
+}
+.iconoCarrito path{
+    fill: none;
+    stroke: #575758;
+    stroke-width: 30px;
 }
 .cantidadCarrito{
     position: absolute;

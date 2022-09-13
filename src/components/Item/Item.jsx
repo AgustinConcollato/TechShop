@@ -1,9 +1,11 @@
 import React from "react"
+import {Link} from 'react-router-dom'
 import './Item.css'
 
 const Item = ({producto})=> { 
+    let id = producto.catalog_product_id || producto.id
     return(
-        <div key={producto.id} className="producto">
+        <Link to={'/item/'+id} className="producto">
             <div className="imgProducto">
                 <img src={producto.thumbnail} alt={producto.title} />
             </div>
@@ -12,10 +14,8 @@ const Item = ({producto})=> {
                 <h2> {producto.title} </h2>
                 <h4> ${producto.price} </h4>
             </div>
-        </div>
+        </Link>
     )
 }
-
-// usar el "catalog_product_id" en el detalle
 
 export default Item
