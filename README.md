@@ -1,5 +1,5 @@
 # Proyecto ReactJS - CoderHouse
-El proyecto es un e-commerce de productos tecnológicos. Computadoras, Parlantes, relojes y celulares
+El proyecto es un e-commerce de productos tecnológicos. Computadoras, Parlantes, relojes y celulares.\
 Toda la información de los productos se obtiene de la api de [MercadoLibre](https://developers.mercadolibre.com.ar/es_ar/api-docs-es)
 
 ## Instalar
@@ -9,6 +9,6 @@ Toda la información de los productos se obtiene de la api de [MercadoLibre](htt
 
 **Font Awesome**
 
-`npm i --save @fortawesome/fontawesome-svg-core`
-`npm install --save @fortawesome/free-solid-svg-icons`
+`npm i --save @fortawesome/fontawesome-svg-core`\
+`npm install --save @fortawesome/free-solid-svg-icons`\
 `npm install --save @fortawesome/react-fontawesome`
