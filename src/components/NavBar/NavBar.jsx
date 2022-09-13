@@ -9,10 +9,10 @@ const Categorias = (props) =>{
     )
 }
 
-const NavBar = () => {
+const NavBar = ({heightHeader}) => {
     let categorias = ['Celulares','Computadoras','Parlantes','Relojes']
     return(
-        <header id="encabezado">
+        <header style={{height: heightHeader}}>
             <div className="headerCenter">
                 <Link className="logo" to={'/'} >
                     <h2><span>Tech</span>Shop</h2>

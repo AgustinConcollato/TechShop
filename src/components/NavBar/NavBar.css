@@ -1,14 +1,17 @@
 header{
     height: 100%;
+    width: 100%;
     background: #fff;
     border-bottom: 1px solid #ddd;
     height: 120px;
     padding: 10px;
     overflow: hidden;
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
     z-index: 1000;
     transition: .2s;
+    box-shadow: 0 5px 10px #00000010;
 }
 .headerCenter{
     height: 100px;
@@ -19,6 +22,9 @@ header{
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
+}
+header:hover{
+    height: 120px !important;
 }
 
 .logo h2{

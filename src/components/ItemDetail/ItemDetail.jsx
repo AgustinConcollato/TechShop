@@ -1,45 +1,9 @@
 import React, { useState, useEffect } from "react"
-import { Link } from 'react-router-dom'
 import ItemCount from '../ItemCount/ItemCount'
+import ImgDetalle from "./ImgDetalle"
+import Variedad from "./Variedad"
+import Caracteristicas from "./Caracteristicas"
 import './ItemDetail.css'
-
-const ImgDetalle = ({src, alt, setImgActual}) =>{
-    return(
-        <div key={src.id} className="imgDetalle" onMouseMove={()=> setImgActual(src.url)} >
-            <img className="imgLaterales" src={src.url} alt={alt} />
-        </div>
-    )
-}
-
-const Variedad = ({pickers, idActual}) =>{  
-    const [estilos,setEstilos] = useState(['#ddd','block'])
-
-    useEffect(()=>{
-        pickers.product_id === idActual && setEstilos(['#d66140','block'])
-        pickers.thumbnail === '' && setEstilos(['#fff','none'])
-    },[])
-
-    return(
-        <Link to={'/item/'+pickers.product_id} className="imgVariedad" style={{borderColor:estilos[0], display:estilos[1]}}>
-            <img src={pickers.thumbnail} alt={pickers.picker_label} />
-        </Link>
-    )
-}
-
-const CaracteristicasList = ({caracteristica}) =>{
-    const [btnEstilos,setBtnEstilos] = useState()
-    
-    useEffect(()=>{
-        caracteristica.hasOwnProperty('main_features') ? setBtnEstilos('block') : setBtnEstilos('none')
-    },[])
-
-    return(
-        <div>
-            <button style={{display:btnEstilos}} className="btnCaracteristias">Caracteristicas</button>
-            <ul> {caracteristica.main_features?.map(caracteristica => (<li key={caracteristica.text} className="caracteristica"> {caracteristica.text} </li>))} </ul>
-        </div>
-    )
-}
 
 const ItemDetail = ({detalle}) =>{
 
@@ -107,7 +71,7 @@ const ItemDetail = ({detalle}) =>{
                 <h1 className="nombre"> {nombre} </h1>
                 <h4 className="precio"> ${precio} </h4>
                 <div className="contenedorCaracteristicas">
-                    <CaracteristicasList caracteristica={detalle} />
+                    <Caracteristicas caracteristica={detalle} />
                 </div>
                 <div className="variedad"> {indiceVariedad()} </div>  
                 <div className="agregarCarrito">

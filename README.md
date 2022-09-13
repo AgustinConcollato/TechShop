@@ -1,5 +1,5 @@
 # Proyecto ReactJS - CoderHouse
-El proyecto es un e-commerce de productos tecnológicos. Computadoras, Parlantes, relojes y celulares.\
+El proyecto es un e-commerce de productos tecnológicos. Computadoras, Parlantes, Relojes y Celulares.\
 Toda la información de los productos se obtiene de la api de [MercadoLibre](https://developers.mercadolibre.com.ar/es_ar/api-docs-es)
 
 ## Instalar
