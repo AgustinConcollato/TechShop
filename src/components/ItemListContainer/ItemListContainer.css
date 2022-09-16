@@ -1,7 +1,7 @@
 
 .contenedorProductos{
     max-width: 1023px;
-    margin: 180px auto 60px;
+    margin: 60px auto ;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;

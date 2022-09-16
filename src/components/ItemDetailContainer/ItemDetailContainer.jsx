@@ -10,27 +10,35 @@ const ItemDetailContainer = () => {
     const [detalle,setDetalle] = useState([])
     const {idProducto} = useParams()
 
-    useEffect(()=>{
+    const apiProducts = () =>{
         fetch(`https://api.mercadolibre.com/products/${idProducto}`)
         .then(producto =>{
             return producto.json()
         }).then(producto =>{
             if(producto.status === 404){
-                fetch(`https://api.mercadolibre.com/items/${idProducto}`)
-                .then(producto =>{
-                    return producto.json()
-                }).then(producto =>{
-                    setDetalle(producto)            
-                }).catch( error =>{
-                    setDetalle([])   
-                })
+                apiItems()
             }else{
                 setDetalle(producto)            
             }
         }).catch( error =>{
             setDetalle([])   
         })
+    }
+    const apiItems = () =>{
+        fetch(`https://api.mercadolibre.com/items/${idProducto}`)
+        .then(producto =>{
+            return producto.json()
+        }).then(producto =>{
+            setDetalle(producto)            
+        }).catch( error =>{
+            setDetalle([])   
+        })
+    }
+
+    useEffect(()=>{
+        apiProducts()
     },[idProducto])
+    
     return(
         <section className="contenedorDetalle">
             {detalle.length !== 0 ? <ItemDetail detalle={detalle} /> : <Loading />}

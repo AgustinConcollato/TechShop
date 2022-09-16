@@ -3,9 +3,9 @@ import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './ItemCount.css'
 
-const ItemCount = ({stock,iniciar}) =>{
+const ItemCount = ({stock,iniciar,onAdd}) =>{
 
-    const [cantidadTotal,setCantidad] = useState(iniciar)
+    const [cantidad,setCantidad] = useState(iniciar)
 
     useEffect(()=>{
         stock === 0 ? setCantidad(0) : setCantidad(iniciar)
@@ -13,20 +13,21 @@ const ItemCount = ({stock,iniciar}) =>{
 
     const cambiarCantidad = (e) =>{
         if(e){
-            cantidadTotal < stock && setCantidad(cantidadTotal + 1)
+            cantidad < stock && setCantidad(cantidad + 1)
         }else{
-            stock !== 0 && cantidadTotal > 1 && setCantidad(cantidadTotal - 1)
+            stock !== 0 && cantidad > 1 && setCantidad(cantidad - 1)
         }
     }
     return(
-        <form action="#" className="agregar">
+        <div className="agregar">
+            <span className="stock"> En stock: {stock} </span>
             <div>
                 <button onClick={()=>{ cambiarCantidad(false) }} type="button"><FontAwesomeIcon icon={faMinus} /></button>
-                <input type="text" value={cantidadTotal} disabled/>
+                <input type="text" value={cantidad} disabled/>
                 <button onClick={()=>{ cambiarCantidad(true) }} type="button"><FontAwesomeIcon icon={faPlus} /></button>
             </div>
-            <button type="submit" className="btnAgregar">Agregar al carrito</button>
-        </form>
+            <button onClick={()=>cantidad !== 0 && onAdd(cantidad)} type="submit" className="btnAgregar">Agregar al carrito</button>
+        </div>
     )
 }
 

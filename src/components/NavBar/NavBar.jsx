@@ -21,7 +21,7 @@ const NavBar = ({heightHeader}) => {
                 <input type="text" placeholder="¿Qué estas buscando?" />  
                 </form>
                 <div className="contenedorInfoUsuario">
-                    <CartWidget cantidad={0}/>
+                    <Link to={'/cart'}><CartWidget cantidad={0}/></Link>
                     <div className="usuario">
                         <span>¡Bienvenido!</span>
                         <div><Link to={"#"} >Iniciar</Link>|<Link to={"#"} >Registro</Link></div>

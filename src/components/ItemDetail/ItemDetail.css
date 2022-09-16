@@ -1,6 +1,6 @@
 
 .detalle{
-    margin: 180px auto 60px;
+    margin: 60px auto;
     max-width: 1023px;
     max-height: 500px;
     height: auto;
@@ -66,12 +66,6 @@
     font-size: 35px;
     font-weight: 300;
     position: relative;
-}
-.stock{
-    font-size: 14px;
-    margin-bottom: 10px;
-    display: inline-block;
-    color: #888;
 }
 .contenedorCaracteristicas{
     position: relative;
@@ -151,7 +145,26 @@
     margin: 5% 0 0 5%;
 }
 
-.agregarCarrito{
+.terminarCompra{
+    background: #d66140;
+    color: #fff;
+    border-radius: 5px;
+    width: 220px;
+    font-size: 16px;
+    height: 40px;
+    display: inline-block;
+    text-align: center;
+    line-height: 40px;
+    animation: terminarCompra .3s 1;
+}
+
+@keyframes terminarCompra {
+    0%{
+        transform: scale(.95);
+    }
+    100%{
+        transform: scale(1);
+    }
 }
 
 .noDisponible{

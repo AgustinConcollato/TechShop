@@ -12,6 +12,9 @@
 *::selection{
   background: #00000020;
 }
+body{
+  padding-top: 120px;
+}
 a{
   text-decoration: none;
 }
