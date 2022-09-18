@@ -7,7 +7,7 @@ import './ItemDetailContainer.css'
 
 const ItemDetailContainer = () => {
 
-    const [detalle,setDetalle] = useState([])
+    const [detalle,setDetalle] = useState({})
     const {idProducto} = useParams()
 
     const apiProducts = () =>{
@@ -21,7 +21,7 @@ const ItemDetailContainer = () => {
                 setDetalle(producto)            
             }
         }).catch( error =>{
-            setDetalle([])   
+            setDetalle({})   
         })
     }
     const apiItems = () =>{
@@ -31,7 +31,7 @@ const ItemDetailContainer = () => {
         }).then(producto =>{
             setDetalle(producto)            
         }).catch( error =>{
-            setDetalle([])   
+            setDetalle({})   
         })
     }
 
@@ -41,7 +41,7 @@ const ItemDetailContainer = () => {
     
     return(
         <section className="contenedorDetalle">
-            {detalle.length !== 0 ? <ItemDetail detalle={detalle} /> : <Loading />}
+            {Object.entries(detalle).length !== 0 ? <ItemDetail detalle={detalle} /> : <Loading />}
         </section>
     )
 }

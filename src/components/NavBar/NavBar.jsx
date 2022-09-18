@@ -1,25 +1,33 @@
-import React from "react"
+import React, {useState, useEffect} from "react"
 import CartWidget from "../CartWidget"
 import {Link} from 'react-router-dom'
 import './NavBar.css'
+import Categoria from "./Categoria"
+import Buscador from "./Buscador"
 
-const Categorias = (props) =>{
-    return(
-        <li key={props.categoria}><Link to={"/category/"+props.categoria} >{props.categoria}</Link></li>
-    )
-}
+const NavBar = () => {
 
-const NavBar = ({heightHeader}) => {
-    let categorias = ['Celulares','Computadoras','Parlantes','Relojes']
+    const categorias = ['Celulares','Computadoras','Parlantes','Relojes']
+
+    const [posicion, setPosicion ] = useState(window.pageYOffset)
+    const [heightHeader, setHeightHeader] = useState(120)
+  
+    useEffect(()=>{
+      window.onscroll = () => {
+        if(posicion <= window.pageYOffset){
+          setHeightHeader(80)
+        }else{
+          setHeightHeader(120)
+        }
+        setPosicion(window.pageYOffset)
+      }
+    }, [posicion])
+
     return(
         <header style={{height: heightHeader}}>
             <div className="headerCenter">
-                <Link className="logo" to={'/'} >
-                    <h2><span>Tech</span>Shop</h2>
-                </Link>
-                <form action="#" className="buscador">
-                <input type="text" placeholder="¿Qué estas buscando?" />  
-                </form>
+                <Link className="logo" to={'/'} ><h2><span>Tech</span>Shop</h2> </Link>
+                <Buscador />
                 <div className="contenedorInfoUsuario">
                     <Link to={'/cart'}><CartWidget cantidad={0}/></Link>
                     <div className="usuario">
@@ -28,7 +36,7 @@ const NavBar = ({heightHeader}) => {
                     </div>
                 </div>
                 <nav> 
-                    <ul> { categorias.map(e => <Categorias categoria={e} />) } </ul>
+                    <ul> { categorias.map(e => <Categoria categoria={e} />) } </ul>
                 </nav>
             </div>
         </header>

@@ -15,7 +15,6 @@ const ItemDetail = ({detalle}) =>{
     const [nombre, setNombre] = useState('')
     const [marca, setMarca] = useState('')
     const [cantidad, setCantidad] = useState(0)
-    const [id, setId] = useState('')
 
     const indiceVariedad = () =>{
         if(detalle.pickers !== null){
@@ -37,7 +36,6 @@ const ItemDetail = ({detalle}) =>{
 
     useEffect(()=>{
         setCantidad(0)
-        setId(detalle.id)
 
         if(detalle.status === 'active'){
             if(detalle.hasOwnProperty('buy_box_winner')){
@@ -72,7 +70,7 @@ const ItemDetail = ({detalle}) =>{
     },[detalle])
 
     return(
-        <div key={id} className="detalle">
+        <div key={detalle.id} className="detalle">
             <div className="contenedorImg">
                 <div className="contenedorImgLaterales">
                     {imgLaterales.map(img =>( <ImgDetalle src={img} alt={detalle.name} setImgActual={setImgActual} />))}
