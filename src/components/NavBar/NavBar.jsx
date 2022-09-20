@@ -29,7 +29,7 @@ const NavBar = () => {
                 <Link className="logo" to={'/'} ><h2><span>Tech</span>Shop</h2> </Link>
                 <Buscador />
                 <div className="contenedorInfoUsuario">
-                    <Link to={'/cart'}><CartWidget cantidad={0}/></Link>
+                    <Link to={'/cart'}><CartWidget /></Link>
                     <div className="usuario">
                         <span>¡Bienvenido!</span>
                         <div><Link to={"#"} >Iniciar</Link>|<Link to={"#"} >Registro</Link></div>

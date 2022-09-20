@@ -1,12 +1,16 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useContext } from "react"
 import ItemCount from '../ItemCount/ItemCount'
 import ImgDetalle from "./ImgDetalle"
 import Variedad from "./Variedad"
 import Caracteristicas from "./Caracteristicas"
 import './ItemDetail.css'
 import { Link } from "react-router-dom"
+import { CartContext } from '../../context/CartContext'
+import RemoveItem from '../Cart/RemoveItem'
 
-const ItemDetail = ({detalle}) =>{
+const ItemDetail = ({detalle}) =>{ 
+
+    const {addItem, removeItem} = useContext(CartContext)
 
     const [imgActual, setImgActual] = useState('')
     const [imgLaterales, setImgLaterales] = useState([])
@@ -15,6 +19,7 @@ const ItemDetail = ({detalle}) =>{
     const [nombre, setNombre] = useState('')
     const [marca, setMarca] = useState('')
     const [cantidad, setCantidad] = useState(0)
+    const [id, setId] = useState('')
 
     const indiceVariedad = () =>{
         if(detalle.pickers !== null){
@@ -30,12 +35,17 @@ const ItemDetail = ({detalle}) =>{
 
     const onAdd = (c) =>{
         setCantidad(c)
-        console.log('Se agregó al carrito:' + nombre)
-        console.log('Cantidad:' + c)
+        const producto = {...detalle, cantidad: c}
+        addItem(producto)
+    }
+    const onRemove = (i) =>{
+        setCantidad(0)
+        removeItem(i)
     }
 
     useEffect(()=>{
         setCantidad(0)
+        setId(detalle.id)
 
         if(detalle.status === 'active'){
             if(detalle.hasOwnProperty('buy_box_winner')){
@@ -70,7 +80,7 @@ const ItemDetail = ({detalle}) =>{
     },[detalle])
 
     return(
-        <div key={detalle.id} className="detalle">
+        <div key={id} className="detalle">
             <div className="contenedorImg">
                 <div className="contenedorImgLaterales">
                     {imgLaterales.map(img =>( <ImgDetalle src={img} alt={detalle.name} setImgActual={setImgActual} />))}
@@ -86,6 +96,7 @@ const ItemDetail = ({detalle}) =>{
                 </div>
                 <div className="variedad"> {indiceVariedad()} </div>  
                 {cantidad === 0 ? <ItemCount stock={stock} iniciar={1} onAdd={onAdd} /> : <Link className="terminarCompra" to={'/cart'}>Terminar mi compra</Link>}
+                <RemoveItem idProducto={id} onRemove={onRemove} />
             </div>
         </div>
     ) 

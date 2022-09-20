@@ -156,6 +156,22 @@
     text-align: center;
     line-height: 40px;
     animation: terminarCompra .3s 1;
+    margin-right: 10px;
+}
+
+.eliminarItemCart{
+    color: #d66140;
+    background: #f5f5f5;
+    border-radius: 5px;
+    width: 200px;
+    font-size: 16px;
+    display: inline-block;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    cursor: pointer;
+    animation: animacionBtn .3s 1;
+
 }
 
 @keyframes terminarCompra {

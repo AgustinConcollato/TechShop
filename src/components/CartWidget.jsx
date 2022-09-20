@@ -1,12 +1,23 @@
-import React from "react"
+import React, { useContext } from "react"
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { CartContext } from "../context/CartContext"
+import { useState } from "react"
+import { useEffect } from "react"
 
-const CartWidget = (props) =>{
+const CartWidget = () =>{
+
+    const {cart} = useContext(CartContext)
+    const [cantidadCarrito, setCantidadCarrito] = useState(0)
+
+    useEffect(()=>{
+        setCantidadCarrito(cart.reduce((acumulado, producto)=>acumulado + producto.cantidad , 0))
+    },[cart])
+
     return(
         <div className="carrito">
             <FontAwesomeIcon icon={faCartShopping} className="iconoCarrito" />
-            <span className="cantidadCarrito"> {props.cantidad} </span>
+            {cantidadCarrito !== 0 && <span className="cantidadCarrito"> { cantidadCarrito } </span>}
         </div>
     )
 }

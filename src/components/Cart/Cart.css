@@ -3,3 +3,57 @@ section{
     max-width: 1023px;
     margin: 60px auto;
 }
+
+.contenedorCarrito{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+.opcionesCarrito{
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #eee;
+    background: #fff;
+    outline: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.opcionesCarrito:hover{
+    box-shadow: 0 3px 5px #00000010;
+}
+
+.menuOpcionesCarrito{
+    position: absolute;
+    top: 35px;
+    right: 0;
+    background: #fff;
+    padding: 5px 0;
+    box-shadow: 0 5px 10px #00000010;
+    overflow: hidden;
+    transition: .2s;
+    border: 1px solid #eee;
+    border-radius: 5px;
+}
+.menuVisible{
+    transform: scale(1) translateX(0);
+}
+.menuHidden{
+    transform: scale(0) translateX(150px);
+}
+
+.menuOpcionesCarrito button{
+    background: transparent;
+    outline: none;
+    border: none;
+    padding: 5px 20px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 13px;
+}
+.menuOpcionesCarrito button:hover{
+    background: #f9f9f9;
+}

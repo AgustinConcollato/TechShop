@@ -4,11 +4,13 @@ import NavBar from './components/NavBar/NavBar'
 import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer'
 import Cart from './components/Cart/Cart'
+import CartProvider from './context/CartContext' 
+
 
 const App = () =>{
 
   return (
-    <div>
+    <CartProvider>
       <NavBar />
       <Routes>
         <Route exact path='/' element={<ItemListContainer />} />
@@ -16,7 +18,7 @@ const App = () =>{
         <Route exact path='/item/:idProducto' element={<ItemDetailContainer />} />
         <Route exact path='/cart' element={<Cart />} />
       </Routes>
-    </div>
+    </CartProvider>
   );
 }
 

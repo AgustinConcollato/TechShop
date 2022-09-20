@@ -10,7 +10,6 @@ const Item = ({producto})=> {
                 <img src={producto.thumbnail} alt={producto.title} />
             </div>
             <div className="infoProducto">
-                <span> En stock: {producto.available_quantity} </span>
                 <h2> {producto.title} </h2>
                 <h4> ${producto.price} </h4>
             </div>
