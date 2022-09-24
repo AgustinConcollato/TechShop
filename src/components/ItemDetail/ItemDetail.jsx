@@ -6,11 +6,10 @@ import Caracteristicas from "./Caracteristicas"
 import './ItemDetail.css'
 import { Link } from "react-router-dom"
 import { CartContext } from '../../context/CartContext'
-import RemoveItem from '../Cart/RemoveItem'
 
 const ItemDetail = ({detalle}) =>{ 
 
-    const {addItem, removeItem} = useContext(CartContext)
+    const {addItem} = useContext(CartContext)
 
     const [imgActual, setImgActual] = useState('')
     const [imgLaterales, setImgLaterales] = useState([])
@@ -35,12 +34,8 @@ const ItemDetail = ({detalle}) =>{
 
     const onAdd = (c) =>{
         setCantidad(c)
-        const producto = {...detalle, cantidad: c}
+        const producto = {...detalle, cantidad: c, precioTotal: precio * c}
         addItem(producto)
-    }
-    const onRemove = (i) =>{
-        setCantidad(0)
-        removeItem(i)
     }
 
     useEffect(()=>{
@@ -96,7 +91,6 @@ const ItemDetail = ({detalle}) =>{
                 </div>
                 <div className="variedad"> {indiceVariedad()} </div>  
                 {cantidad === 0 ? <ItemCount stock={stock} iniciar={1} onAdd={onAdd} /> : <Link className="terminarCompra" to={'/cart'}>Terminar mi compra</Link>}
-                <RemoveItem idProducto={id} onRemove={onRemove} />
             </div>
         </div>
     ) 

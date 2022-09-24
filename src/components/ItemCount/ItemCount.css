@@ -53,4 +53,29 @@
     border-radius: 5px;
 }
 
+.contadorCarrito{
+    padding-top: 0;
+    align-items: center;
+    margin-bottom: 0;
+    width: 125px;
+}
+.contadorCarrito input{
+    height: 40px;
+}
+.stockProductoCarrito{
+    font-size: 13px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    text-align: center;
+    width: 100px;
+    position: absolute;
+    top: -30px;
+    left: 13px;
+    transform: scale(0) translateY(30px);
+    padding: 3px 5px;
+    transition: .2s;
+}
+.contadorCarrito:hover .stockProductoCarrito{
+    transform: scale(1) translateY(0);
+}
 

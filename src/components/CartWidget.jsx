@@ -7,11 +7,11 @@ import { useEffect } from "react"
 
 const CartWidget = () =>{
 
-    const {cart} = useContext(CartContext)
+    const {cart, allItems} = useContext(CartContext)
     const [cantidadCarrito, setCantidadCarrito] = useState(0)
 
     useEffect(()=>{
-        setCantidadCarrito(cart.reduce((acumulado, producto)=>acumulado + producto.cantidad , 0))
+        setCantidadCarrito(allItems())
     },[cart])
 
     return(

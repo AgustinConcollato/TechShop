@@ -19,18 +19,23 @@ const CartProvider = ({children}) =>{
         }
     }
     const removeItem = (id) =>{
-        for(let i = 0; i < cart.length; i++){
-            if(cart[i].id === id){
-                cart.splice(i,1)
-                setCart([...cart])
-            }
-        }
+        let items = cart.filter(item => item.id !== id)
+        setCart(items)
     }
     const clear = () =>{
         setCart([])
     }
+    const updateItem = (id,cantidad) =>{
+        let productoActualizar = cart.find(e => e.id === id)
+        productoActualizar.cantidad = cantidad 
+        productoActualizar.precioTotal = (productoActualizar.price || productoActualizar.buy_box_winner.price) * cantidad
+        setCart([...cart])
+    } 
+    const allItems = () =>{
+        return cart.reduce((acumulado, producto)=>acumulado + producto.cantidad , 0)
+    }
 
-    return <CartContext.Provider value={{cart,addItem,removeItem,clear}}> {children} </CartContext.Provider>
+    return <CartContext.Provider value={{cart,addItem,removeItem,updateItem,allItems,clear}}> {children} </CartContext.Provider>
 }
 
 export default CartProvider

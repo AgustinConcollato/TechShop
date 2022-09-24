@@ -102,5 +102,5 @@ nav ul li a{
     border-bottom: 2px solid transparent;
 }
 nav ul li a:hover{
-    border-bottom: 2px solid #d66140;
+    color:#d66140;
 }
