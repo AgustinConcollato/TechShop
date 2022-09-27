@@ -14,4 +14,5 @@ Toda la información de los productos se obtiene de MercadoLibre y se utiliza Fi
 `npm install --save @fortawesome/react-fontawesome`
 
 **Firebase**
+
 `npm install firebase`
