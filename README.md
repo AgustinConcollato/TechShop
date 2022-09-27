@@ -1,6 +1,6 @@
 # Proyecto ReactJS - CoderHouse
 El proyecto es un e-commerce de productos tecnológicos. Computadoras, Parlantes, Relojes y Celulares.\
-Toda la información de los productos se obtiene de la api de [MercadoLibre](https://developers.mercadolibre.com.ar/es_ar/api-docs-es)
+Toda la información de los productos se obtiene de MercadoLibre y se utiliza Firebase como base de datos.
 
 ## Instalar
 **React Router**
@@ -11,4 +11,7 @@ Toda la información de los productos se obtiene de la api de [MercadoLibre](htt
 
 `npm i --save @fortawesome/fontawesome-svg-core`\
 `npm install --save @fortawesome/free-solid-svg-icons`\
-`npm install --save @fortawesome/react-fontawesome`
+`npm install --save @fortawesome/react-fontawesome`\
+
+**Firebase**
+`npm install firebase`

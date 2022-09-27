@@ -9,12 +9,12 @@ const CartProducto = ({cartProducto, removeItem}) =>{
         <div className="productoCarrito">
             <FontAwesomeIcon  icon={faTimes}  onClick={(() => removeItem(cartProducto.id))} className="removerProductoCarrito"/>
             <div className="imgProductoCarrito">
-                <img src={cartProducto.pictures[0].url} alt={cartProducto.title || cartProducto.name} />
+                <img src={cartProducto.pictures[0]} alt={cartProducto.name} />
             </div>
             <div className="contenedorNombre">
-                <Link to={'/item/'+cartProducto.id} title={cartProducto.title || cartProducto.name}> {cartProducto.title || cartProducto.name} </Link>
+                <Link to={'/item/'+cartProducto.id} title={cartProducto.name}> {cartProducto.name} </Link>
             </div>
-            <ItemCountCart id={cartProducto.id} stock={cartProducto.available_quantity || cartProducto.buy_box_winner.available_quantity} cantidadActual={cartProducto.cantidad} />
+            <ItemCountCart id={cartProducto.id} stock={cartProducto.available_quantity} cantidadActual={cartProducto.cantidad} />
             <span className="productoCarritoPrecio" >$ {cartProducto.precioTotal} </span>
         </div>
     )

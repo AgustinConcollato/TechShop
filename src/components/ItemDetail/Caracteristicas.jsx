@@ -10,7 +10,7 @@ const Caracteristicas = ({caracteristica}) =>{
     return(
         <div>
             <button style={{display:btnEstilos}} className="btnCaracteristias">Caracteristicas</button>
-            <ul> {caracteristica.main_features?.map(caracteristica => (<li key={caracteristica.text} className="caracteristica"> {caracteristica.text} </li>))} </ul>
+            <ul> {caracteristica.main_features?.map(caracteristica => (<li key={caracteristica} className="caracteristica"> {caracteristica} </li>))} </ul>
         </div>
     )
 }

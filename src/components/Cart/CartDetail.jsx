@@ -5,11 +5,11 @@ const CartDetail = ({cart}) =>{
 
     const imgDetalleCarrito = () => {
         if(cart.length < 4){
-            return cart.map(e => (<div><img src={e.pictures[0].url} alt={e.name || e.title} /></div>)) 
+            return cart.map(e => (<div><img src={e.pictures[0]} alt={e.name} /></div>)) 
         } else if(cart.length > 3){
             return(
                 <>
-                {cart.slice(0,2).map(e =>(<div><img src={e.pictures[0].url} alt={e.name || e.title} /></div>))}
+                {cart.slice(0,2).map(e =>(<div><img src={e.pictures[0]} alt={e.name} /></div>))}
                 <div className="sobrante"><span>+ {cart.length - 2}</span></div>
                 </>
             )
