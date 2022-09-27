@@ -11,7 +11,7 @@ Toda la información de los productos se obtiene de MercadoLibre y se utiliza Fi
 
 `npm i --save @fortawesome/fontawesome-svg-core`\
 `npm install --save @fortawesome/free-solid-svg-icons`\
-`npm install --save @fortawesome/react-fontawesome`\
+`npm install --save @fortawesome/react-fontawesome`
 
 **Firebase**
 `npm install firebase`
