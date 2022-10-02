@@ -7,7 +7,6 @@ import { Link } from "react-router-dom"
 import { CartContext } from '../../context/CartContext'
 
 const ItemDetail = ({detalle}) =>{ 
-    console.log(detalle)
 
     const {addItem} = useContext(CartContext)
 
@@ -43,7 +42,7 @@ const ItemDetail = ({detalle}) =>{
                 <div className="contenedorImgLaterales">
                     {imgLaterales.map(img =>( <ImgDetalle src={img} alt={nombre} setImgActual={setImgActual} />))}
                 </div>
-                <img className="imgActual" src={imgActual} alt={detalle.name} />
+                <img className="imgActual" src={imgActual} alt={nombre} />
             </div>
             <div className="infoDetalle">
                 <span className="marca"> {marca} </span>

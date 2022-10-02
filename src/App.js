@@ -5,6 +5,7 @@ import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer'
 import Cart from './components/Cart/Cart'
 import CartProvider from './context/CartContext' 
+import Success from './components/Success/Success'
 import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {
@@ -28,6 +29,7 @@ const App = () =>{
         <Route exact path='/category/:idCategoria' element={<ItemListContainer />} />
         <Route exact path='/item/:idProducto' element={<ItemDetailContainer />} />
         <Route exact path='/cart' element={<Cart />} />
+        <Route exact path='/success/:orderId' element={<Success />} />
       </Routes>
     </CartProvider>
   );

@@ -1,0 +1,80 @@
+.checkout{
+    border-radius: 5px;
+    background: #fff;
+    width: 760px;
+    padding: 15px;
+}
+.checkout > span{
+    font-size: 14px;
+    margin-bottom: 15px;
+    display: inline-block;
+    cursor: pointer;
+}
+.formCheckout{
+    display: flex;
+    flex-wrap: wrap;
+}
+.formCheckout > div{
+    position: relative;
+    padding: 10px 0;
+    width: 40%;
+    margin: 5px 10px 20px;
+}
+.formCheckout > div input{
+    padding: 7px 10px;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+    outline: none;
+    font-size: 14px;
+    width: 100%;
+}
+.formCheckout > div label{
+    position: absolute;
+    left: 15px;
+    top: -1px;
+    font-size: 13px;
+    background: #fff;
+    padding: 0 5px;
+    pointer-events: none;
+    color: #bbb;
+}
+
+.formCheckout div input:focus{
+    border-color: #d66140;
+}
+.formCheckout div input:focus + label{
+    color: #d66140;
+}
+
+.formCheckout button{
+    color: #fff;
+    background: #d66140;
+    border: none;
+    font-size: 15px;
+    width: 200px;
+    margin: 20px 220px 10px 10px;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 5px;
+    position: relative;
+}
+
+.error{
+    position: absolute;
+    font-size: 13px; 
+    color: #f00;
+    width: 100%;
+    cursor: auto;
+    pointer-events: none;
+    line-height: 15px;
+}
+.formCheckout > div .error{
+    width: 120%;
+    bottom: -10px;
+    left: 0;
+    height: 10px;
+}
+.formCheckout button .error{
+    left: 110%;
+    top: 0;    
+}

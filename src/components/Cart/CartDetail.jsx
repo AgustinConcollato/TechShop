@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom"
 
-const CartDetail = ({cart}) =>{
+const CartDetail = ({cart, setCheckout}) =>{
 
     const imgDetalleCarrito = () => {
         if(cart.length < 4){
@@ -22,9 +22,11 @@ const CartDetail = ({cart}) =>{
             <div className="imgDetalle">
                 {imgDetalleCarrito()}
             </div>
-            <span>Subtotal: ${cart.reduce((acumulado, carrito)=>acumulado + carrito.precioTotal , 0)} </span>
-            <Link to={'/'}>Seguir comprando</Link>
-            <Link to={'#'}>Comprar</Link>
+            <span>Total: ${cart.reduce((acumulado, carrito)=>acumulado + carrito.precioTotal , 0)} </span> 
+            <div>
+                <Link to={'/'}>Seguir comprando</Link>
+                <button onClick={() => setCheckout(true)}>Comprar</button>
+            </div>
         </div>
     )
 }

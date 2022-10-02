@@ -9,23 +9,23 @@ import './ItemDetailContainer.css'
 const ItemDetailContainer = () => {
 
     const [detalle,setDetalle] = useState({})
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(true)
     const {idProducto} = useParams()
 
     useEffect(()=>{
-        setLoading(false)
+        setLoading(true)
         const db = getFirestore()
 
         const item = doc(db,"items",idProducto)
         getDoc(item).then(e => {
             setDetalle(e.data())
-            setLoading(true)
+            setLoading(false)
         })
     },[idProducto])
     
     return(
         <section className="contenedorDetalle">
-            {loading ? <ItemDetail detalle={detalle} /> : <Loading />}
+            {loading ? <Loading /> : <ItemDetail detalle={detalle} />}
         </section>
     )
 }

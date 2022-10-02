@@ -10,32 +10,32 @@ const ItemListContainer = () => {
 
     const {idCategoria} = useParams()
     const [catalogo,setCatalogo] = useState({})
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(true)
 
     const getCategoryItems = (db) =>{
         const itemsCollection = query(collection(db,"items"), where("category", "==", idCategoria))
         getDocs(itemsCollection).then(e => {
             setCatalogo(e.docs.map(item => ({...item.data()})))
-            setLoading(true)
+            setLoading(false)
         })
     }
     const getItems = (db) =>{
         const itemsCollection = collection(db,"items")
         getDocs(itemsCollection).then(e => {
             setCatalogo(e.docs.map(item => ({...item.data()})))
-            setLoading(true)
+            setLoading(false)
         })
     }
 
     useEffect(()=>{
-        setLoading(false)
+        setLoading(true)
         const db = getFirestore()
         idCategoria ? getCategoryItems(db) : getItems(db)
     },[idCategoria])
 
     return(
         <section>
-            {loading ? <ItemList catalogo={catalogo}/> : <Loading />}
+            {loading ? <Loading /> : <ItemList catalogo={catalogo}/>}
         </section>
     )
 }
