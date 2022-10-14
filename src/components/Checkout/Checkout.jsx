@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { CartContext } from "../../context/CartContext"
 import { addDoc, collection, getFirestore } from 'firebase/firestore'
 import { useNavigate } from 'react-router-dom'
+import { UserContext } from "../../context/UserContext"
 
 const Checkout = ({setCheckout}) =>{
 
@@ -13,31 +14,42 @@ const Checkout = ({setCheckout}) =>{
     const [nombre, setNombre] = useState('')
     const [correo, setCorreo] = useState('')
     const [telefono, setTelefono] = useState(0)
+    const [comenterio, setComenterio] = useState('')
     const [error, setError] = useState('')
     const [errorNombre, setErrorNombre] = useState('')
     const [errorCorreo, setErrorCorreo] = useState('')
     const [errorTelefono, setErrorTelefono] = useState('')
+
+    const {user} = useContext(UserContext)
     const navigate = useNavigate(); 
 
     const sendOrder = () =>{
+        const fecha = new Date()
+        const mes = new Intl.DateTimeFormat('es', { month: 'long' }).format(new Date(fecha.getFullYear(), (fecha.getMonth()+1)))
         const buyer = {name: nombre, phone: telefono, email: correo}
         const items = []
-        cart.forEach(e => items.push({id: e.id, title: e.name, price: e.price, available: e.cantidad}))
+        const comment = comenterio
+        cart.forEach(e => items.push({id: e.id, title: e.name, price: e.price, quantity: e.cantidad}))
 
         const order = {
             buyer: buyer,
             items: items,
-            total: cart.reduce((acumulado, carrito)=>acumulado + carrito.precioTotal , 0)
+            comment: comment,
+            total: cart.reduce((acumulado, carrito)=>acumulado + carrito.precioTotal , 0),
+            datetime: {
+                date: fecha.getDate()+' de '+mes+' de '+fecha.getFullYear(),
+                time: fecha.getHours()+':'+fecha.getMinutes()
+            },
+            uid: user !== null ? user.uid : ''
         }
 
         const db = getFirestore()
         const orderCollection = collection(db,"orders")
         addDoc(orderCollection,order).then(({id}) => {
             clear()
-            navigate("/success/"+id)
+            navigate("/order/"+id)
         })
     }
-
     const validadForm = (e) =>{
         e.preventDefault()
         if(nombre === '' || correo === '' || telefono === 0){
@@ -55,21 +67,20 @@ const Checkout = ({setCheckout}) =>{
             setErrorCorreo('')
         }else{
             setCorreo('')
-            setErrorCorreo('*La direccion de correo no tiene el formato requerido')
+            setErrorCorreo('*La dirección de correo no tiene el formato requerido')
         }
 
         e === '' && setErrorCorreo('')
     }
     const validarNombre = (e) =>{
         setError('')
-
         const expresionNombre = /^[a-zA-Z ]+$/
         if(expresionNombre.test(e)){
             setNombre(e)
             setErrorNombre('')
         }else{
             setNombre('')
-            setErrorNombre('*El nombre no debe contener numeros ni símbolos')
+            setErrorNombre('*El nombre no debe contener números ni símbolos')
         }
 
         e === '' && setErrorNombre('')
@@ -87,26 +98,42 @@ const Checkout = ({setCheckout}) =>{
         e.length === 0 && setErrorTelefono('')
     }   
 
+    useEffect(()=>{
+        if(user !== null){
+            setNombre(user.displayName)
+            setCorreo(user.email)
+        }
+    },[])
+
     return(
         <div className="checkout">
             <span onClick={()=>setCheckout(false)}><FontAwesomeIcon icon={faAngleLeft} /> Volver al carrito</span>
             <form className="formCheckout" onSubmit={e => validadForm(e)}>
-                <div>
-                    <input type="text" name="nombre" id="nombre" autoComplete="off" onKeyUp={e => validarNombre(e.target.value.trim())} />
-                    <label htmlFor="nombre">Nombre</label>
-                    <span className="error"> {errorNombre} </span>
+                <div className="contenedorInputs">
+                    <div>
+                        <input type="text" value={nombre} id="nombre" autoComplete="off" onKeyUp={e => validarNombre(e.target.value.trim())} />
+                        <label htmlFor="nombre">Nombre y Apellido</label>
+                    </div>
+                    <div>
+                        <input type="email" value={correo} id="correo" autoComplete="off" onKeyUp={e => validarCorreo(e.target.value.trim())} />
+                        <label htmlFor="correo">Correo electrónico</label>
+                    </div>
+                    <div>
+                        <input type="number" min={0} id="telefono" autoComplete="off" onChange={e => validarTelefono(e.target.value)} />
+                        <label htmlFor="telefono">Teléfono</label>
+                    </div>
+                    <div>
+                        <textarea id="detalle" placeholder="Ejemplo: Que el parlante sea negro..." onKeyUp={e => setComenterio(e.target.value.trim())} ></textarea>
+                        <label htmlFor="detalle">Comentario de la compra (opcional)</label>
+                    </div>
                 </div>
-                <div>
-                    <input type="email" name="correo" id="correo" autoComplete="off" onKeyUp={e => validarCorreo(e.target.value.trim())} />
-                    <label htmlFor="correo">Correo electrónico</label>
-                    <span className="error"> {errorCorreo} </span>
+                <div className="contenedorErrores">
+                    {errorNombre && <span className="error"> {errorNombre} </span>}
+                    {errorCorreo && <span className="error"> {errorCorreo} </span>}
+                    {errorTelefono && <span className="error"> {errorTelefono} </span>}
+                    {error && <span className="error"> {error} </span>}
                 </div>
-                <div>
-                    <input type="number" min={0} name="telefono" id="telefono" autoComplete="off" onChange={e => validarTelefono(e.target.value)} />
-                    <label htmlFor="telefono">Teléfono</label>
-                    <span className="error"> {errorTelefono} </span>
-                </div>
-                <button type="submit">Terminar compra <span className="error"> {error} </span></button>
+                <button type="submit">Realizar compra</button>
             </form>
         </div>
     )

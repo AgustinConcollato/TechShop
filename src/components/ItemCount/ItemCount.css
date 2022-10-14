@@ -79,3 +79,42 @@
     transform: scale(1) translateY(0);
 }
 
+.noUserDetalle{
+    display: block  !important;
+    position: absolute;
+    background: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    width: 400px;
+    box-shadow: 0 5px 10px #00000010;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+}
+.noUserDetalle svg{
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+.noUserDetalle h3{
+    font-weight: 300;
+    text-align: center;
+    padding: 10px 20px;
+}
+.noUserDetalle a {
+    display: block;
+    width: 140px;
+    margin: 10px auto;
+    border-radius: 5px;
+    text-align: center;
+    padding: 5px 10px;
+}
+.noUserDetalle a:nth-child(3){
+    color: #fff;
+    background: #d66140;
+}
+.noUserDetalle a:nth-child(4){
+    color: #d66140;
+    background: #d6614033;
+}

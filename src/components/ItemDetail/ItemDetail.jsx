@@ -34,6 +34,8 @@ const ItemDetail = ({detalle}) =>{
         setStock(detalle.available_quantity)
         setNombre(detalle.name)
         setMarca(detalle.brand)
+
+        document.title = detalle.name
     },[detalle])
 
     return(

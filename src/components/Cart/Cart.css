@@ -25,9 +25,9 @@ section{
 }
 
 .avisoCarritoVacio a{
-    color: #d66140;
+    background: #d66140;
+    color: #fff;
     font-size: 16px;
-    border: 1px solid #d66140;
     padding: 5px 20px;
     border-radius: 5px;
     margin-top: 40px;
@@ -156,7 +156,7 @@ section{
     font-size: 18px;
 }
 
-.detalleCarrito{
+.contenedorDetalleCarrito{
     width: 250px;
     background: #fff;
     border-radius: 5px;
@@ -164,7 +164,7 @@ section{
     top: 90px;
     padding: 15px 15px 10px;
 }
-.detalleCarrito h4{
+.contenedorDetalleCarrito h4{
     text-align: center;
     font-size: 18px;
     font-weight: 300;
@@ -177,6 +177,56 @@ section{
     align-items: center;
     position: relative;
 }
+.detalleCarrito{
+    position: relative;
+    height: 15px;
+    overflow: hidden;
+    padding-top: 15px;
+    margin-bottom: 10px;
+    transition: .2s;
+}
+.detalleCarritoVisible{
+    height: 100%;
+    padding-bottom: 20px;
+}
+.detalleCarrito ul li{
+    border-bottom: 1px solid #ddd;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.detalleCarrito ul li span{
+    font-size: 14px;
+    text-align: start;
+    margin: 0;
+}
+.detalleCarrito ul li span:nth-child(1){
+    width: 170px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.detalleCarrito svg{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    transition: .2s;
+}
+.detalleCarrito svg path{
+    fill: #aaa;
+}
+.detalleCarrito svg:hover path{
+    fill: #575758;
+}
+.detalleCarritoVisible svg{
+    bottom: -2px;
+    transform: rotateZ(180deg) translateX(50%);
+}
 .imgDetalle > div{
     border-radius: 50%;
     position: relative;
@@ -184,7 +234,6 @@ section{
     box-shadow: 0 5px 10px #00000010;
     height: 60px;
     width: 60px;
-
 }
 .imgDetalle > div img{
     object-fit: contain;
@@ -202,25 +251,25 @@ section{
     margin: 0;
     color: #fff;
 }
-.detalleCarrito span{
+.contenedorDetalleCarrito span{
     text-align: center;
     font-size: 18px;
     font-weight: 300;
     margin-bottom: 20px;
     display: block;
 }
-.detalleCarrito a, .detalleCarrito button{
+.contenedorDetalleCarrito a, .contenedorDetalleCarrito button{
     text-align: center;
     padding: 7px 10px;
     display: block;
     border-radius: 5px;
     margin: 5px 0;
 }
-.detalleCarrito a{
+.contenedorDetalleCarrito a{
     color: #d66140;
     background: #d6614033;
 }
-.detalleCarrito button{
+.contenedorDetalleCarrito button{
     color: #fff;
     background: #d66140;
     border: none;

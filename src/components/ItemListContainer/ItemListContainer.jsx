@@ -31,6 +31,8 @@ const ItemListContainer = () => {
         setLoading(true)
         const db = getFirestore()
         idCategoria ? getCategoryItems(db) : getItems(db)
+
+        document.title = idCategoria ? 'TechShop • ' + idCategoria : 'TechShop'  
     },[idCategoria])
 
     return(

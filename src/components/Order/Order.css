@@ -1,0 +1,120 @@
+.errorOrder, .successOrder{
+    text-align: center;
+    padding: 40px;
+    background: #fff;
+    width: 1023px;
+}
+.sectionOrder > div svg{
+    height: 150px;
+    width: 150px;
+    transition: .2s;
+}
+.sectionOrder > div svg path{
+    fill: #d6614033;
+    stroke: #d66140;
+    stroke-width: 10px;
+    stroke-dasharray: 1700;
+    animation: efectoSvg 2.5s 1;
+}
+.sectionOrder > div h1{
+    margin: 20px 0 3px;
+    font-size: 25px;
+    transition: .2s;
+
+}
+.sectionOrder > div p{
+    font-size: 15px;
+    transition: .2s;
+}
+.sectionOrder > div p span{
+    color: #1872fa;
+    cursor: pointer;
+}
+.sectionOrder > div p span:hover{
+    text-decoration: underline;
+}
+.sectionOrder > div a{
+    display: block;
+    font-size: 16px;
+    padding: 5px 20px;
+    border-radius: 5px;
+    margin: 10px auto 0;
+    width: 180px;
+}
+.sectionOrder .orderMisCompras{
+    color: #d66140;
+    background: #d6614033;
+}
+.sectionOrder .volverInicio{
+    background: #d66140;
+    color: #fff;
+    margin-top: 50px;
+}
+
+@keyframes efectoSvg{
+    0%{
+        stroke-dashoffset: 1700;
+
+    }
+    100%{
+        stroke-dashoffset: 0;
+    }
+}
+
+.sectionOrder .successOrderDetail{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding-bottom: 30px;
+}
+.sectionOrder .successOrderDetail svg{
+    height: 40px;
+    width: 40px;
+    margin-right: 20px;
+}
+.sectionOrder .successOrderDetail > div{
+    flex: none;
+    width: calc(100% - 300px);
+}
+.sectionOrder .successOrderDetail h1{
+    text-align: start;
+    font-size: 20px;
+    margin: 0;
+}
+.sectionOrder .successOrderDetail p{
+    text-align: start;
+    margin-left: 8px;
+    font-size: 13px;
+}
+table tr th{
+    font-weight: 300;
+}
+table tr td{
+    padding: 3px 10px;
+    border-bottom: 1px solid #eee;
+}
+.orderProducto{
+    width: 620px;
+    max-width: 620px;
+    text-align: start;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.orderCantidad, .orderPrecio{
+    width: 150px;
+}
+.orderPrecioTotal td{
+    border-bottom: none;
+}
+.comentario{
+    border-radius: 5px;
+    text-align: start;
+    padding: 10px;
+    margin-top: 20px;
+    background: #f9f9f9;
+}
+.order .comentario p{
+    font-size: 14px;
+    padding-left: 5px;
+}

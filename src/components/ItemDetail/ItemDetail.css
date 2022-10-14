@@ -182,14 +182,37 @@
     }
 }
 
-.noDisponible{
-    position: absolute;
-    top: 5px;
-    left: 0;
-    background: #f5f5f5;
-    z-index: 100;
-    font-size: 14px;
-    padding: 10px;
+.detalleError{
+    background: #fff;
+    padding: 20px;
     border-radius: 5px;
+    margin-bottom: 60px;
+}
+.detalleError h1{
+    border: 1px solid #d66140;
+    border-radius: 5px;
+    padding: 20px;
+    background: #d6614023;
+    text-align: center;
+    font-weight: 300;
+    font-size: 18px;
     color: #d66140;
+    text-transform: uppercase;
+    width: 100%;
+}
+.detalleError p{
+    text-align: center;
+    display: block;
+    margin-top: 20px;
+    font-size: 14px;
+}
+.detalleError p span{
+    color: #1872fa;
+}
+.subtitulo{
+    font-weight: 300;
+    position: relative;
+    top: 30px;
+    text-align: center;
+    font-size: 20px;
 }

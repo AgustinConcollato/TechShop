@@ -5,8 +5,12 @@ import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer'
 import Cart from './components/Cart/Cart'
 import CartProvider from './context/CartContext' 
-import Success from './components/Success/Success'
-import { initializeApp } from "firebase/app";
+import Order from './components/Order/Order'
+import { initializeApp } from "firebase/app"
+import Register from './components/Register/Register'
+import Login from './components/Login/Login'
+import UserProvider from './context/UserContext'
+import MyPurchases from './components/MyPurchases/MyPurchases'
 
 const firebaseConfig = {
   apiKey: "AIzaSyAu_E4dO-0y0H6paI1IwOEMtbeweN9Pv7U",
@@ -20,18 +24,22 @@ const firebaseConfig = {
 initializeApp(firebaseConfig);
 
 const App = () =>{
-
   return (
-    <CartProvider>
-      <NavBar />
-      <Routes>
-        <Route exact path='/' element={<ItemListContainer />} />
-        <Route exact path='/category/:idCategoria' element={<ItemListContainer />} />
-        <Route exact path='/item/:idProducto' element={<ItemDetailContainer />} />
-        <Route exact path='/cart' element={<Cart />} />
-        <Route exact path='/success/:orderId' element={<Success />} />
-      </Routes>
-    </CartProvider>
+    <UserProvider>
+      <CartProvider>
+        <NavBar />
+        <Routes>
+          <Route exact path='/' element={<ItemListContainer />} />
+          <Route exact path='/category/:idCategoria' element={<ItemListContainer />} />
+          <Route exact path='/item/:idProducto' element={<ItemDetailContainer />} />
+          <Route exact path='/cart' element={<Cart />} />
+          <Route exact path='/order/:orderId' element={<Order />} />
+          <Route exact path='/register' element={<Register />} />
+          <Route exact path='/login' element={<Login />} />
+          <Route exact path='/myPurchases' element={<MyPurchases />} />
+        </Routes>
+      </CartProvider>
+    </UserProvider>
   );
 }
 

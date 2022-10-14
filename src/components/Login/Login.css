@@ -1,0 +1,105 @@
+.formLogin, .formCambiarContrasena{
+    background: #fff;
+    border-radius: 5px;
+    width: 340px;
+    padding: 20px;
+    margin: auto;
+    margin-bottom: 20px;
+}
+.formLogin h1, .formCambiarContrasena h2{
+    margin-bottom: 30px;
+    text-align: center;
+    text-transform: uppercase;    
+    font-weight: 300;
+}
+.formLogin > div, .formCambiarContrasena > div{
+    position: relative;
+    padding: 10px 0;
+    margin: 5px 0 10px;
+}
+.formLogin > div input, .formCambiarContrasena > div input{
+    padding: 7px 10px;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+    outline: none;
+    font-size: 14px;
+    width: 100%;
+}
+.formLogin > div label, .formCambiarContrasena > div label{
+    position: absolute;
+    left: 15px;
+    top: -1px;
+    font-size: 13px;
+    background: #fff;
+    padding: 0 5px;
+    pointer-events: none;
+    color: #bbb;
+}
+
+.formLogin div input:focus, .formCambiarContrasena div input:focus{
+    border-color: #d66140;
+}
+.formLogin div input:focus + label, .formCambiarContrasena div input:focus + label{
+    color: #d66140;
+}
+.formLogin .olvidarContrasena{
+    color: #1872fa99;
+    font-size: 13px;
+    margin: 0;
+    cursor: pointer;
+    display: inline-block;
+}
+.olvidarContrasena:hover{
+    color: #1872fa;
+}
+.formLogin span, .formCambiarContrasena span{
+    font-size: 13px;
+    color: #f00;
+    display: block;
+    background: #ff000015;
+    padding: 5px 7px;
+    border-radius: 3px;
+    border: .5px solid #ff000040;
+}
+.formLogin button, .formCambiarContrasena button{
+    color: #fff;
+    background: #d66140;
+    border: none;
+    font-size: 15px;
+    width: 100%;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 5px;
+    position: relative;
+    margin: 20px 0 5px;
+}
+.formLogin p{
+    font-size: 13px;
+    margin-top: 10px;
+    text-align: center;
+}
+.formLogin p a{
+    color: #1872fa99;
+}
+.formLogin p a:hover{
+    color: #1872fa;
+}
+
+.formCambiarContrasena{
+    position: relative;
+    padding-top: 30px;
+}
+.formCambiarContrasena svg{
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    cursor: pointer;
+}
+.formCambiarContrasena h2{
+    font-size: 20px;
+}
+.formCambiarContrasena .success{
+    border: 0.5px solid #5f974450;
+    color: #5f9744;
+    background: #89fb5333;
+}
