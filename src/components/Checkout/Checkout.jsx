@@ -3,7 +3,7 @@ import './Checkout.css'
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { CartContext } from "../../context/CartContext"
-import { addDoc, collection, getFirestore } from 'firebase/firestore'
+import { addDoc, collection, getFirestore, Timestamp } from 'firebase/firestore'
 import { useNavigate } from 'react-router-dom'
 import { UserContext } from "../../context/UserContext"
 
@@ -36,10 +36,7 @@ const Checkout = ({setCheckout}) =>{
             items: items,
             comment: comment,
             total: cart.reduce((acumulado, carrito)=>acumulado + carrito.precioTotal , 0),
-            datetime: {
-                date: fecha.getDate()+' de '+mes+' de '+fecha.getFullYear(),
-                time: fecha.getHours()+':'+fecha.getMinutes()
-            },
+            datetime: Timestamp.fromDate(new Date()),
             uid: user !== null ? user.uid : ''
         }
 

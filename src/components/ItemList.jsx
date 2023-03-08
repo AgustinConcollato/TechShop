@@ -2,6 +2,7 @@ import React from "react"
 import Item from "./Item/Item"
 
 const ItemList = ({catalogo}) => {
+    console.log(catalogo)
     return(
         <div className="contenedorProductos">
             { catalogo.map(e => <Item key={e.id} producto={e} />) }

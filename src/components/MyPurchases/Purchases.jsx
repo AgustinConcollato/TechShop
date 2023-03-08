@@ -3,12 +3,13 @@ import { Link } from "react-router-dom"
 import './MyPurchases.css'
 
 const Purchases = ({orders}) =>{
+    console.log(orders)
     return(
         <div className="misCompras">
             {orders.map(order => (
                 <div className="compras">
                     <div className="comprasHeader">
-                        <h3> {order.datetime.date} <span>{order.datetime.time}</span> </h3>
+                        <h3>{Date(order.datetime)}</h3>
                         <p>Código: <span> {order.id} </span></p>
                     </div>
                     <table cellSpacing={0}>
