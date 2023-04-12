@@ -1,18 +1,19 @@
-header{
+header {
     height: 100%;
     width: 100%;
     background: #fff;
     border-bottom: 1px solid #ddd;
     height: 120px;
     padding: 10px;
-    position: fixed;
+    position: sticky;
     top: 0;
     left: 0;
     z-index: 1000;
     transition: .2s;
     box-shadow: 0 5px 10px #00000010;
 }
-.headerCenter{
+
+.headerCenter {
     height: 100px;
     width: 100%;
     max-width: 1023px;
@@ -22,20 +23,18 @@ header{
     justify-content: space-between;
     flex-wrap: wrap;
 }
-header:hover{
-    height: 120px !important;
-}
 
-.logo h2{
+.logo h2 {
     font-size: 20px;
     font-weight: 300;
 }
-.logo h2 span{
+
+.logo h2 span {
     color: #d66140;
     font-size: 22px;
 }
 
-.buscador input{
+.buscador input {
     border: none;
     outline: none;
     background: #f5f5f5;
@@ -44,25 +43,29 @@ header:hover{
     width: 500px;
 }
 
-.contenedorInfoUsuario{
+.contenedorInfoUsuario {
     display: flex;
     align-items: center;
 }
-.carrito{
+
+.carrito {
     margin-right: 10px;
     transform: rotateY(180deg);
     cursor: pointer;
     position: relative;
 }
-.iconoCarrito{
+
+.iconoCarrito {
     font-size: 20px;
 }
-.iconoCarrito path{
+
+.iconoCarrito path {
     fill: none;
     stroke: #575758;
     stroke-width: 30px;
 }
-.cantidadCarrito{
+
+.cantidadCarrito {
     position: absolute;
     top: -7px;
     left: 13px;
@@ -77,16 +80,18 @@ header:hover{
     transform: rotateY(180deg);
 }
 
-.usuario > span{
+.usuario>span {
     color: #aaa;
     font-size: 14px;
 }
-.usuario > div{
+
+.usuario>div {
     position: relative;
     top: -5px;
     font-size: 14px;
 }
-.usuario > div > span{
+
+.usuario>div>span {
     color: #d66140;
     text-transform: capitalize;
     cursor: pointer;
@@ -96,10 +101,12 @@ header:hover{
     display: inline-block;
     width: 140px;
 }
-.usuario .perfilSeleccionado{
+
+.usuario .perfilSeleccionado {
     color: #d6614033;
 }
-.perfil{
+
+.perfil {
     position: absolute;
     top: 0;
     right: 0;
@@ -111,30 +118,35 @@ header:hover{
     z-index: 100;
     transition: .2s;
 }
-.perfil svg{
+
+.perfil svg {
     cursor: pointer;
     position: absolute;
     top: 7px;
     right: 10px;
     z-index: 100;
 }
-.perfil span{
+
+.perfil span {
     display: block;
     text-align: center;
 }
-.perfil span:nth-child(2){
+
+.perfil span:nth-child(2) {
     font-size: 17px;
     position: relative;
     top: 3px;
     text-transform: capitalize;
 }
-.perfil span:nth-child(3){
+
+.perfil span:nth-child(3) {
     font-size: 12px;
     border-bottom: 1px solid #eee;
     color: #d66140;
     padding-bottom: 15px;
 }
-.perfil button{
+
+.perfil button {
     border: 1px solid #eee;
     border-radius: 5px;
     background: #fff;
@@ -144,47 +156,131 @@ header:hover{
     transition: .2s;
     cursor: pointer;
 }
-.perfil button:hover{
+
+.perfil button:hover {
     border-color: #ccc;
 }
-.perfilVisible{
+
+.perfilVisible {
     transform: scale(1) translate(0, 20px);
 }
-.perfilHidden{
-    transform: scale(0) translate(100px,-200px);
+
+.perfilHidden {
+    transform: scale(0) translate(100px, -200px);
 }
-.usuario a{
+
+.usuario a {
     margin: 0 3px;
 }
-.opcionesUsuario{
+
+.opcionesUsuario {
     border-bottom: 1px solid #eee;
     margin-bottom: 15px;
     padding: 5px 0;
 }
-.opcionesUsuario li{
+
+.opcionesUsuario li {
     display: block;
 }
-.opcionesUsuario li a{
+
+.opcionesUsuario li a {
     padding: 5px 20px;
     font-size: 13px;
     margin: 0;
     display: block;
 }
-.opcionesUsuario li a:hover{
+
+.opcionesUsuario li a:hover {
     background: #f9f9f9;
 }
 
-nav{
+nav {
     width: 100%;
 }
-nav ul{
+
+nav ul {
     display: flex;
 }
-nav ul li a{
+
+nav ul li a {
     margin: 0 10px;
     font-size: 14px;
     border-bottom: 2px solid transparent;
 }
-nav ul li a:hover{
-    color:#d66140;
+
+nav ul li a:hover {
+    color: #d66140;
+}
+
+@media all and (max-width: 1030px) {
+    header {
+        height: 120px;
+    }
+
+    .headerCenter {
+        height: 100px;
+        max-width: 600px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .buscador input {
+        width: 250px;
+    }
+}
+
+@media all and (max-width: 630px) {
+    header {
+        height: 150px;
+    }
+
+    .headerCenter {
+        height: 130px;
+        width: 90%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .contenedorInfoUsuario {
+        display: flex;
+        align-items: center;
+        order: 2;
+    }
+
+    .buscador {
+        order: 3;
+        width: 100%;
+    }
+
+    .buscador input {
+        width: 100%;
+    }
+
+    nav {
+        order: 4;
+        padding-top: 10px;
+        overflow: auto;
+    }
+
+    nav ul {
+        min-width: 310px;
+    }
+
+    nav::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+
+    .logo {
+        order: 1;
+    }
+
+    .logo h2,
+    .logo h2 span {
+        font-size: 18px;
+    }
 }

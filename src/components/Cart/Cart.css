@@ -1,10 +1,9 @@
-section{
-    width: 100%;
+section {
     max-width: 1023px;
     margin: 60px auto;
 }
 
-.avisoCarritoVacio{
+.avisoCarritoVacio {
     padding: 40px 0;
     display: flex;
     flex-direction: column;
@@ -14,17 +13,19 @@ section{
     background: #fff;
     border-radius: 5px;
 }
-.avisoCarritoVacio h1{
+
+.avisoCarritoVacio h1 {
     font-weight: 300;
     font-size: 30px;
 }
-.avisoCarritoVacio span{
+
+.avisoCarritoVacio span {
     color: #aaa;
     font-weight: 300;
     font-size: 16px;
 }
 
-.avisoCarritoVacio a{
+.avisoCarritoVacio a {
     background: #d66140;
     color: #fff;
     font-size: 16px;
@@ -32,17 +33,18 @@ section{
     border-radius: 5px;
     margin-top: 40px;
 }
-.avisoCarritoVacio a:hover{
+
+.avisoCarritoVacio a:hover {
     box-shadow: 0 5px 10px #00000010;
 }
 
-.contenedorCarrito{
+.contenedorCarrito {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
 }
 
-.headerCarrito{
+.headerCarrito {
     display: flex;
     justify-content: end;
     align-items: center;
@@ -54,7 +56,7 @@ section{
     border-radius: 5px;
 }
 
-.opcionesCarrito{
+.opcionesCarrito {
     height: 30px;
     width: 30px;
     display: flex;
@@ -66,7 +68,7 @@ section{
     cursor: pointer;
 }
 
-.menuOpcionesCarrito{
+.menuOpcionesCarrito {
     position: absolute;
     top: 45px;
     right: 0;
@@ -79,14 +81,16 @@ section{
     border-radius: 5px;
     z-index: 100;
 }
-.menuVisible{
+
+.menuVisible {
     transform: scale(1) translateX(0);
 }
-.menuHidden{
+
+.menuHidden {
     transform: scale(0) translateX(150px);
 }
 
-.menuOpcionesCarrito button{
+.menuOpcionesCarrito button {
     background: transparent;
     outline: none;
     border: none;
@@ -95,19 +99,22 @@ section{
     width: 100%;
     font-size: 13px;
 }
-.menuOpcionesCarrito button:hover{
+
+.menuOpcionesCarrito button:hover {
     background: #f9f9f9;
 }
 
-.contenedorProductoCarrito{
+.contenedorProductoCarrito {
     width: 760px;
     background: #fff;
     border-radius: 5px;
 }
-.productoCarrito:nth-last-child(1){
+
+.productoCarrito:nth-last-child(1) {
     border: none;
 }
-.productoCarrito{
+
+.productoCarrito {
     width: 100%;
     height: 120px;
     display: flex;
@@ -118,45 +125,53 @@ section{
     position: relative;
     overflow: hidden;
 }
-.imgProductoCarrito{
+
+.imgProductoCarrito {
     width: 80px;
     height: 80px;
 }
-.imgProductoCarrito img{
+
+.imgProductoCarrito img {
     height: 100%;
     width: 100%;
     object-fit: contain;
 }
-.contenedorNombre{
+
+.contenedorNombre {
     width: 350px;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
     margin: 0 15px 25px;
 }
-.contenedorNombre a{
+
+.contenedorNombre a {
     font-size: 15px;
 }
-.productoCarrito a:hover{
+
+.productoCarrito a:hover {
     text-decoration: underline #aaa;
 }
-.removerProductoCarrito{
+
+.removerProductoCarrito {
     position: absolute;
     top: 10px;
     right: 10px;
     cursor: pointer;
     display: none;
 }
-.productoCarrito:hover .removerProductoCarrito{
+
+.productoCarrito:hover .removerProductoCarrito {
     display: block;
 }
-.productoCarritoPrecio{
-    width: 120px; 
+
+.productoCarritoPrecio {
+    width: 120px;
     text-align: end;
     font-size: 18px;
 }
 
-.contenedorDetalleCarrito{
+.contenedorDetalleCarrito {
     width: 250px;
     background: #fff;
     border-radius: 5px;
@@ -164,20 +179,23 @@ section{
     top: 90px;
     padding: 15px 15px 10px;
 }
-.contenedorDetalleCarrito h4{
+
+.contenedorDetalleCarrito h4 {
     text-align: center;
     font-size: 18px;
     font-weight: 300;
     margin-bottom: 10px;
 }
-.imgDetalle{
+
+.imgDetalle {
     width: calc(100% - 15px);
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
 }
-.detalleCarrito{
+
+.detalleCarrito {
     position: relative;
     height: 15px;
     overflow: hidden;
@@ -185,29 +203,34 @@ section{
     margin-bottom: 10px;
     transition: .2s;
 }
-.detalleCarritoVisible{
+
+.detalleCarritoVisible {
     height: 100%;
     padding-bottom: 20px;
 }
-.detalleCarrito ul li{
+
+.detalleCarrito ul li {
     border-bottom: 1px solid #ddd;
     padding: 5px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.detalleCarrito ul li span{
+
+.detalleCarrito ul li span {
     font-size: 14px;
     text-align: start;
     margin: 0;
 }
-.detalleCarrito ul li span:nth-child(1){
+
+.detalleCarrito ul li span:nth-child(1) {
     width: 170px;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
-.detalleCarrito svg{
+
+.detalleCarrito svg {
     position: absolute;
     bottom: 0;
     left: 50%;
@@ -217,17 +240,21 @@ section{
     cursor: pointer;
     transition: .2s;
 }
-.detalleCarrito svg path{
+
+.detalleCarrito svg path {
     fill: #aaa;
 }
-.detalleCarrito svg:hover path{
+
+.detalleCarrito svg:hover path {
     fill: #575758;
 }
-.detalleCarritoVisible svg{
+
+.detalleCarritoVisible svg {
     bottom: -2px;
     transform: rotateZ(180deg) translateX(50%);
 }
-.imgDetalle > div{
+
+.imgDetalle>div {
     border-radius: 50%;
     position: relative;
     overflow: hidden;
@@ -235,45 +262,117 @@ section{
     height: 60px;
     width: 60px;
 }
-.imgDetalle > div img{
+
+.imgDetalle>div img {
     object-fit: contain;
     height: 80%;
     width: 80%;
     margin: 10% 0 0 10%;
 }
-.imgDetalle > .sobrante{
+
+.imgDetalle>.sobrante {
     background: #00000040;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.imgDetalle > .sobrante span{
+
+.imgDetalle>.sobrante span {
     margin: 0;
     color: #fff;
 }
-.contenedorDetalleCarrito span{
+
+.contenedorDetalleCarrito span {
     text-align: center;
     font-size: 18px;
     font-weight: 300;
     margin-bottom: 20px;
     display: block;
 }
-.contenedorDetalleCarrito a, .contenedorDetalleCarrito button{
+
+.contenedorDetalleCarrito a,
+.contenedorDetalleCarrito button {
     text-align: center;
     padding: 7px 10px;
     display: block;
     border-radius: 5px;
     margin: 5px 0;
 }
-.contenedorDetalleCarrito a{
+
+.contenedorDetalleCarrito a {
     color: #d66140;
     background: #d6614033;
 }
-.contenedorDetalleCarrito button{
+
+.contenedorDetalleCarrito button {
     color: #fff;
     background: #d66140;
     border: none;
     font-size: 15px;
     width: 100%;
     cursor: pointer;
+}
+
+@media all and (max-width: 1030px) {
+    section {
+        max-width: 600px;
+    }
+
+    .contenedorCarrito {
+        flex-direction: column;
+    }
+
+    .contenedorProductoCarrito {
+        width: 600px;
+    }
+
+    .contenedorNombre {
+        width: 220px;
+    }
+
+    .productoCarritoPrecio {
+        width: 100px;
+    }
+
+    .contenedorDetalleCarrito {
+        width: 100%;
+        position: relative;
+        top: 15px;
+    }
+
+    .detalleCarrito ul li span:nth-child(1) {
+        width: 400px;
+    }
+}
+
+@media all and (max-width: 630px) {
+    section {
+        width: 90%;
+        margin-left: 5%;
+    }
+
+    .contenedorProductoCarrito {
+        width: 100%;
+    }
+
+    .productoCarrito {
+        flex-wrap: wrap;
+        height: 200px;
+    }
+
+    .contenedorNombre {
+        width: 220px;
+    }
+
+    .productoCarritoPrecio {
+        width: 100px;
+    }
+
+    .contenedorDetalleCarrito {
+        width: 100%;
+    }
+
+    .detalleCarrito ul li span:nth-child(1) {
+        width: calc(100% - 20px);
+    }
 }

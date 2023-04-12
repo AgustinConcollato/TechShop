@@ -49,3 +49,16 @@
     box-shadow: 0 10px 20px #00000020;
     z-index: 100;
 }
+
+
+@media all and (max-width: 630px) {
+    .producto {
+        width: 48%;
+    }
+}
+
+@media all and (max-width: 510px) {
+    .producto {
+        width: 100%;
+    }
+}

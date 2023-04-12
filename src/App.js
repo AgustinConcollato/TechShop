@@ -11,6 +11,8 @@ import Register from './components/Register/Register'
 import Login from './components/Login/Login'
 import UserProvider from './context/UserContext'
 import MyPurchases from './components/MyPurchases/MyPurchases'
+import Footer from './components/Footer/Footer'
+import Home from './components/Home/Home'
 
 const firebaseConfig = {
   apiKey: "AIzaSyAu_E4dO-0y0H6paI1IwOEMtbeweN9Pv7U",
@@ -29,7 +31,7 @@ const App = () =>{
       <CartProvider>
         <NavBar />
         <Routes>
-          <Route exact path='/' element={<ItemListContainer />} />
+          <Route exact path='/' element={<Home />} />
           <Route exact path='/category/:idCategoria' element={<ItemListContainer />} />
           <Route exact path='/item/:idProducto' element={<ItemDetailContainer />} />
           <Route exact path='/cart' element={<Cart />} />
@@ -38,6 +40,7 @@ const App = () =>{
           <Route exact path='/login' element={<Login />} />
           <Route exact path='/myPurchases' element={<MyPurchases />} />
         </Routes>
+        <Footer />
       </CartProvider>
     </UserProvider>
   );

@@ -1,25 +1,30 @@
-.checkout{
+.checkout {
     border-radius: 5px;
     background: #fff;
     width: 760px;
     padding: 15px;
 }
-.checkout > span{
+
+.checkout>span {
     font-size: 14px;
     margin-bottom: 15px;
     display: inline-block;
     cursor: pointer;
 }
-.formCheckout .contenedorInputs{
+
+.formCheckout .contenedorInputs {
     display: flex;
     flex-wrap: wrap;
 }
-.formCheckout .contenedorInputs > div{
+
+.formCheckout .contenedorInputs>div {
     position: relative;
     padding: 10px 0;
     margin: 5px 10px 20px;
 }
-.formCheckout .contenedorInputs > div input, textarea{
+
+.formCheckout .contenedorInputs>div input,
+textarea {
     padding: 7px 10px;
     border: 1px solid #bbb;
     border-radius: 5px;
@@ -27,7 +32,8 @@
     font-size: 14px;
     width: 100%;
 }
-.formCheckout > div label{
+
+.formCheckout>div label {
     position: absolute;
     left: 15px;
     top: -1px;
@@ -38,13 +44,17 @@
     color: #bbb;
 }
 
-.formCheckout div input:focus, textarea:focus{
+.formCheckout div input:focus,
+textarea:focus {
     border-color: #d66140;
 }
-.formCheckout div input:focus + label, textarea:focus + label{
+
+.formCheckout div input:focus+label,
+textarea:focus+label {
     color: #d66140;
 }
-textarea{
+
+textarea {
     min-width: 650px;
     max-width: 650px;
     min-height: 50px;
@@ -52,12 +62,13 @@ textarea{
     height: 50px;
     padding-top: 15px;
 }
-textarea::placeholder{
+
+textarea::placeholder {
     color: #aaa;
     font-size: 13px;
 }
 
-.error{
+.error {
     font-size: 13px;
     color: #f00;
     display: inline-block;
@@ -68,7 +79,7 @@ textarea::placeholder{
     margin: 5px 10px;
 }
 
-.formCheckout button{
+.formCheckout button {
     color: #fff;
     background: #d66140;
     border: none;
@@ -82,3 +93,28 @@ textarea::placeholder{
     flex: none;
 }
 
+@media all and (max-width: 1030px) {
+    .checkout {
+        width: 600px;
+    }
+
+    .formCheckout .contenedorInputs>div {
+        width: 100%;
+    }
+
+    textarea {
+        min-width: 100%;
+        max-width: 100%;
+    }
+}
+
+@media all and (max-width: 630px) {
+    .checkout {
+        width: 100%;
+    }
+
+    .contenedorCarrito>div {
+        width: 100%;
+    }
+
+}

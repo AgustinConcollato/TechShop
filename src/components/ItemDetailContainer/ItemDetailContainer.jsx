@@ -4,8 +4,6 @@ import ItemError from "../ItemDetail/ItemError"
 import { useParams } from 'react-router-dom'
 import Loading from '../Loading'
 import { doc, getDoc, getFirestore } from 'firebase/firestore'
-import './ItemDetailContainer.css'
-
 
 const ItemDetailContainer = () => {
 

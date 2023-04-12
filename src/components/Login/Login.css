@@ -103,3 +103,9 @@
     color: #5f9744;
     background: #89fb5333;
 }
+
+@media all and (max-width: 350px) {
+    .formLogin, .formRegister {
+        width: 100%;
+    }
+}
